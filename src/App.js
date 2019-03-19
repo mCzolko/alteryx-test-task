@@ -5,6 +5,7 @@ import './App.css';
 import Bar from './components/Bar';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
+import Contact from './components/Contact';
 import { register, login, logout } from './actions';
 
 class App extends Component {
@@ -27,6 +28,11 @@ class App extends Component {
               Register
             </Link>
             {user && (
+              <Link to="/contacts">
+                Contacts
+              </Link>
+            )}
+            {user && (
               <a href="#" onClick={this.onLogoutClick}>
                 Logout
               </a>
@@ -35,6 +41,7 @@ class App extends Component {
 
           <Route path="/" exact component={() => <LoginForm onSubmit={this.onLoginFormSubmit} />} />
           <Route path="/register" exact component={() => <RegisterForm onSubmit={this.onRegisterFormSubmit} />} />
+          <Route path="/contacts" exact component={() => <Contact />} />
         </Router>
       </div>
     );

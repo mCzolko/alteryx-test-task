@@ -1,8 +1,13 @@
-import { apiUrl, groupId, inviteToken, LOG_USER_IN, LOGOUT } from './constants';
+import { apiUrl, groupId, inviteToken, LOG_USER_IN, LOGOUT, LOADED_CONTACTS } from './constants';
 
 const logUserIn = user => ({
   type: LOG_USER_IN,
   user
+})
+
+const contactsLoaded = contacts => ({
+  type: LOADED_CONTACTS,
+  contacts
 })
 
 export function register(user) {
@@ -35,6 +40,20 @@ export function login(user) {
       .then(res => res.json())
       .then(res => res.data)
       .then(user => dispatch(logUserIn(user)))
+  }
+}
+
+export function loadContacts() {
+  return dispatch => {
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    }
+
+    fetch(`${apiUrl}/user`, requestOptions)
+      .then(res => res.json())
+      .then(res => res.data)
+      .then(contacts => dispatch(contactsLoaded(contacts)))
   }
 }
 
