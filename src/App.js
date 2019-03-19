@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import './App.css';
-import Bar, { BarButton } from './components/Bar';
+import Bar from './components/Bar';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import { register, login, logout } from './actions';
@@ -17,21 +18,24 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Bar>
-          <BarButton>
-            Login
-          </BarButton>
-          <BarButton>
-            Register
-          </BarButton>
-          {user && (
-            <BarButton onClick={this.onLogoutClick}>
-              Logout
-            </BarButton>
-          )}
-        </Bar>
-        <RegisterForm onSubmit={this.onRegisterFormSubmit} />
-        <LoginForm onSubmit={this.onLoginFormSubmit} />
+        <Router>
+          <Bar>
+            <Link to="/">
+              Login
+            </Link>
+            <Link to="/register">
+              Register
+            </Link>
+            {user && (
+              <a href="#" onClick={this.onLogoutClick}>
+                Logout
+              </a>
+            )}
+          </Bar>
+
+          <Route path="/" exact component={() => <LoginForm onSubmit={this.onLoginFormSubmit} />} />
+          <Route path="/register" exact component={() => <RegisterForm onSubmit={this.onRegisterFormSubmit} />} />
+        </Router>
       </div>
     );
   }
