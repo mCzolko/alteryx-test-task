@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Bar.css';
+import './Bar.css';
 
 
 export default ({ children }) => (

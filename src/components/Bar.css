@@ -11,7 +11,7 @@
   background-color: #4267B2;
 }
 
-.Bar a {
+.Bar > a {
   display: flex;
   align-items: center;
   justify-content: center;
