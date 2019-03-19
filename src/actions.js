@@ -1,4 +1,4 @@
-import { apiUrl, groupId, inviteToken, LOG_USER_IN } from './constants';
+import { apiUrl, groupId, inviteToken, LOG_USER_IN, LOGOUT } from './constants';
 
 const logUserIn = user => ({
   type: LOG_USER_IN,
@@ -37,3 +37,7 @@ export function login(user) {
       .then(user => dispatch(logUserIn(user)))
   }
 }
+
+export const logout = () => ({
+  type: LOGOUT
+})
