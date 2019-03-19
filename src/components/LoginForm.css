@@ -7,3 +7,31 @@
   padding: 70px 0 0;
   background-color: #E9EBEE;
 }
+
+.LoginForm input {
+  width: 230px;
+  height: 30px;
+  margin: 0 auto 12px;
+  padding: 8px 10px;
+  border: 1px solid #DDDFE2;
+  outline: none;
+  color: #1D2129;
+  font-size: 17px;
+}
+
+.LoginForm button {
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  border: 1px solid #4267B2;
+  background-color: #4267B2;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  padding: 0 16px;
+  border-radius: 2px;
+  outline: 0;
+  color: #FFF;
+  height: 34px;
+  cursor: pointer;
+}

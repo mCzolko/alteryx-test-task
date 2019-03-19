@@ -17,7 +17,7 @@ const RegisterForm = ({ handleSubmit, error, submitting }) => (
     <div>
       <Field name="password" component="input" type="password" placeholder="Password" required />
     </div>
-    <button type="submit" disabled={submitting}>Submit</button>
+    <button type="submit" disabled={submitting}>Create account</button>
   </form>
 )
 
